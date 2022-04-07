@@ -1,12 +1,4 @@
 apply plugin: 'java'
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
-
-ext {
-    GROUP = 'com.chenenyu.router'
-    ARTIFACT = 'annotation'
-    VERSION = ANNOTATION_VERSION
-}
-
-apply from: '../gradle/publish.gradle'
+apply plugin: 'maven-publish'
+apply plugin: 'com.github.dcendents.android-maven'

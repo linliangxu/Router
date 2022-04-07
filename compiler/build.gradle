@@ -1,5 +1,8 @@
 apply plugin: 'java'
 
+apply plugin: 'maven-publish'
+apply plugin: 'com.github.dcendents.android-maven'
+
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
@@ -10,14 +13,11 @@ targetCompatibility = JavaVersion.VERSION_1_8
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.squareup:javapoet:1.13.0'
-//    implementation project(':annotation')
-    implementation "com.chenenyu.router:annotation:${ANNOTATION_VERSION}"
+    implementation project(':annotation')
 }
 
 ext {
     GROUP = 'com.chenenyu.router'
     ARTIFACT = 'compiler'
-    VERSION = COMPILER_VERSION
+    VERSION = rootProject.ext.version.router
 }
-
-apply from: '../gradle/publish.gradle'

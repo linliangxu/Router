@@ -23,6 +23,7 @@ public final class RouteRequest implements Parcelable {
     private Uri data;
     private String type;
     private String action;
+    private boolean finish;
     private boolean skipImplicitMatcher;
     // skip all the interceptors
     private boolean skipInterceptors;
@@ -92,6 +93,14 @@ public final class RouteRequest implements Parcelable {
 
     public void setAction(String action) {
         this.action = action;
+    }
+
+    public boolean isFinish() {
+        return finish;
+    }
+
+    public void setFinish(boolean finish) {
+        this.finish = finish;
     }
 
     public boolean isSkipImplicitMatcher() {

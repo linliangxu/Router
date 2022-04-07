@@ -13,5 +13,8 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.CLASS)
 public @interface InjectParam {
+    /**
+     * Map param field with the specify key in extras.
+     */
     String key() default "";
 }

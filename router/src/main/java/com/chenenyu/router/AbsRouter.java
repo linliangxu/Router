@@ -192,9 +192,21 @@ abstract class AbsRouter implements IRouter {
     }
 
     @Override
+    public IRouter finish() {
+        mRouteRequest.setFinish(true);
+        return this;
+    }
+
+    @Override
     public IRouter anim(@AnimRes int enterAnim, @AnimRes int exitAnim) {
         mRouteRequest.setEnterAnim(enterAnim);
         mRouteRequest.setExitAnim(exitAnim);
+        return this;
+    }
+
+    @Override
+    public IRouter fade() {
+        anim(android.R.anim.fade_in, android.R.anim.fade_out);
         return this;
     }
 
@@ -238,5 +250,11 @@ abstract class AbsRouter implements IRouter {
     public void go(Fragment fragment, RouteCallback callback) {
         mRouteRequest.setRouteCallback(callback);
         go(fragment);
+    }
+
+    @Override
+    public void start(Context context, RouteCallback callback) {
+        mRouteRequest.setRouteCallback(callback);
+        start(context);
     }
 }

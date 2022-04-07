@@ -43,7 +43,7 @@ public class AttrsProcessor implements RouteInterceptor {
         }
         return response;
     }
-
+    
     @SuppressLint("WrongConstant")
     private void assembleIntent(Intent intent, RouteRequest request) {
         if (request.getExtras() != null && !request.getExtras().isEmpty()) {

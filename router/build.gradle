@@ -1,13 +1,16 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'maven-publish'
+apply plugin: 'com.github.dcendents.android-maven'
+
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
-        versionName ROUTER_VERSION
+        versionName rootProject.ext.version.router
     }
 
     buildTypes {
@@ -32,17 +35,15 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    compileOnly 'androidx.annotation:annotation:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    compileOnly 'androidx.annotation:annotation:1.2.0'
     compileOnly "androidx.fragment:fragment:1.3.5"
-    api "androidx.startup:startup-runtime:1.1.0"
-    //    api project(':annotation')
-    api "com.chenenyu.router:annotation:${ANNOTATION_VERSION}"
+    api project(':annotation')
 }
 
 ext {
     GROUP = 'com.chenenyu.router'
     ARTIFACT = 'router'
-    VERSION = ROUTER_VERSION
+    VERSION = rootProject.ext.version.router
 }
 
-apply from: '../gradle/publish.gradle'

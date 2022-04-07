@@ -12,17 +12,18 @@ public class Constants {
 
     public static final String ACTIVITY_FULL_NAME = "android.app.Activity";
     public static final String FRAGMENT_X_FULL_NAME = "androidx.fragment.app.Fragment";
+    public static final String SERVICE_FULL_NAME = "android.app.Service";
 
     public static final String ROUTE_ANNOTATION_TYPE = "com.chenenyu.router.annotation.Route";
     public static final String INTERCEPTOR_ANNOTATION_TYPE = "com.chenenyu.router.annotation.Interceptor";
     public static final String PARAM_ANNOTATION_TYPE = "com.chenenyu.router.annotation.InjectParam";
 
-    public static final String APT_PACKAGE_NAME = "com.chenenyu.router.apt";
+    public static final String APT_PACKAGE_NAME = "com.chenenyu.router";
 
     public static final String METHOD_HANDLE = "handle";
     public static final String METHOD_INJECT = "inject";
 
-    public static final String ROUTE_TABLE = "RouteTable";
+    public static final String ROUTE_TABLE = "RuleTable";
     public static final String ROUTE_TABLE_FULL_NAME = BASE_PACKAGE_NAME + ".template." + ROUTE_TABLE;
 
     public static final String INTERCEPTOR_FULL_NAME = BASE_PACKAGE_NAME + ".RouteInterceptor";

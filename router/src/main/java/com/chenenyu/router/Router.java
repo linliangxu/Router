@@ -34,6 +34,10 @@ public class Router {
         return RealRouter.getInstance().build(request);
     }
 
+    public static SystemRouter build(int action) {
+        return SystemRouter.getInstance().build(action);
+    }
+
     /**
      * Custom route table.
      */

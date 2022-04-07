@@ -1,6 +1,7 @@
 package com.chenenyu.router.matcher;
 
 import android.app.Activity;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -33,6 +34,8 @@ public abstract class AbsExplicitMatcher extends AbsMatcher {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else if (Service.class.isAssignableFrom(target)) {
+            result = new Intent(context, target);
         }
         return result;
     }

@@ -20,5 +20,3 @@ ext {
     ARTIFACT = 'gradle-plugin'
     VERSION = PLUGIN_VERSION
 }
-
-apply from: '../gradle/publish.gradle'

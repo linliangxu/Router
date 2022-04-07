@@ -82,6 +82,8 @@ public interface IRouter {
      */
     IRouter anim(@AnimRes int enterAnim, @AnimRes int exitAnim);
 
+    IRouter fade();
+
     /**
      * {@link ActivityOptions#toBundle()} and {@link ActivityOptionsCompat#toBundle()}.
      */
@@ -130,4 +132,14 @@ public interface IRouter {
     void go(Fragment fragment, RouteCallback callback);
 
     void go(Fragment fragment);
+
+    void start(Context context);
+
+    void start(Context context, RouteCallback callback);
+
+    void stop(Context context);
+
+    boolean running(Context context);
+
+    IRouter finish();
 }

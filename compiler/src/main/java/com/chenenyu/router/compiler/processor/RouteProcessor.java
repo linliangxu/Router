@@ -37,6 +37,7 @@ import static com.chenenyu.router.compiler.util.Constants.OPTION_MODULE_NAME;
 import static com.chenenyu.router.compiler.util.Constants.ROUTE_ANNOTATION_TYPE;
 import static com.chenenyu.router.compiler.util.Constants.ROUTE_TABLE;
 import static com.chenenyu.router.compiler.util.Constants.ROUTE_TABLE_FULL_NAME;
+import static com.chenenyu.router.compiler.util.Constants.SERVICE_FULL_NAME;
 import static com.chenenyu.router.compiler.util.Constants.TARGET_INTERCEPTORS_FULL_NAME;
 import static com.chenenyu.router.compiler.util.Constants.TARGET_INTERCEPTORS_TABLE;
 
@@ -93,7 +94,7 @@ public class RouteProcessor extends AbstractProcessor {
      * Verify the annotated class. Must be a subtype of Activity or Fragment.
      */
     private boolean validateClass(TypeElement typeElement) {
-        if (!isSubtype(typeElement, ACTIVITY_FULL_NAME) && !isSubtype(typeElement, FRAGMENT_X_FULL_NAME)) {
+        if (!isSubtype(typeElement, ACTIVITY_FULL_NAME) && !isSubtype(typeElement, FRAGMENT_X_FULL_NAME) && !isSubtype(typeElement, SERVICE_FULL_NAME)) {
             mLogger.error(typeElement, String.format("%s is not a subclass of Activity or Fragment.",
                     typeElement.getSimpleName().toString()));
             return false;

@@ -25,8 +25,4 @@
 #-renamesourcefileattribute SourceFile
 
 # Router
--keep class * implements com.chenenyu.router.template.InterceptorTable
 -keep class * implements com.chenenyu.router.template.ParamInjector
--keep class * implements com.chenenyu.router.template.RouteTable
--keep class * implements com.chenenyu.router.template.TargetInterceptorsTable
--keepnames class * extends androidx.fragment.app.Fragment
