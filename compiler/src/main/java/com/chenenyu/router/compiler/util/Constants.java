@@ -23,7 +23,7 @@ public class Constants {
     public static final String METHOD_HANDLE = "handle";
     public static final String METHOD_INJECT = "inject";
 
-    public static final String ROUTE_TABLE = "RuleTable";
+    public static final String ROUTE_TABLE = "RouteTable";
     public static final String ROUTE_TABLE_FULL_NAME = BASE_PACKAGE_NAME + ".template." + ROUTE_TABLE;
 
     public static final String INTERCEPTOR_FULL_NAME = BASE_PACKAGE_NAME + ".RouteInterceptor";

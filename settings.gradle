@@ -1,2 +1,2 @@
-// core
+include ':routerapp'// core
 include ':router', ':compiler', ':annotation'
