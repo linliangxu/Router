@@ -1,6 +1,7 @@
 package com.chenenyu.router;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -207,6 +208,17 @@ abstract class AbsRouter implements IRouter {
     @Override
     public IRouter fade() {
         anim(android.R.anim.fade_in, android.R.anim.fade_out);
+        return this;
+    }
+
+    /**
+     * FLAG_ACTIVITY_CLEAR_TASK
+     * 本flag能造成在新活动启动前，与新活动关联的任务被清空。也就是说，新活动成为新任务的根，旧的活动都被结束了。本flag只能与FLAG_ACTIVITY_NEW_TASK联合使用。
+     * @return
+     */
+    @Override
+    public IRouter newTask() {
+        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         return this;
     }
 

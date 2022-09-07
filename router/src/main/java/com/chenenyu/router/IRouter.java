@@ -85,6 +85,12 @@ public interface IRouter {
     IRouter fade();
 
     /**
+     * 新活动成为新任务的根，旧的活动都会被结束
+     * @return
+     */
+    IRouter newTask();
+
+    /**
      * {@link ActivityOptions#toBundle()} and {@link ActivityOptionsCompat#toBundle()}.
      */
     IRouter activityOptionsBundle(Bundle activityOptionsBundle);
