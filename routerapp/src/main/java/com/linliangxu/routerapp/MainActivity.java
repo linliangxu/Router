@@ -1,9 +1,15 @@
 package com.linliangxu.routerapp;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.chenenyu.router.RouteCallback;
+import com.chenenyu.router.RouteStatus;
 import com.chenenyu.router.Router;
+import com.chenenyu.router.RouterInterceptorTable;
 import com.chenenyu.router.RouterRouteTable;
+import com.chenenyu.router.RouterTargetInterceptorsTable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Router.handleRouteTable(new RouterRouteTable());
+        Router.handleInterceptorTable(new RouterInterceptorTable());
+        Router.handleTargetInterceptorsTable(new RouterTargetInterceptorsTable());
 
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -31,7 +39,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        Router.build("home").go(this);
+        Log.e("Xu", "message");
+        Router.build("home").go(this, new RouteCallback() {
+            @Override
+            public void callback(RouteStatus status, Uri uri, String message) {
+            }
+        });
     }
 
 }

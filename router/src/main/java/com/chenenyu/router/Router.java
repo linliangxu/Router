@@ -3,7 +3,9 @@ package com.chenenyu.router;
 import android.net.Uri;
 
 import com.chenenyu.router.matcher.AbsMatcher;
+import com.chenenyu.router.template.InterceptorTable;
 import com.chenenyu.router.template.RouteTable;
+import com.chenenyu.router.template.TargetInterceptorsTable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,10 +44,19 @@ public class Router {
      * Custom route table.
      */
     public static void handleRouteTable(RouteTable routeTable) {
-        if (routeTable != null) {
-            routeTable.handle(AptHub.routeTable);
-        }
+        if (routeTable != null) routeTable.handle(AptHub.routeTable);
     }
+
+    public static void handleInterceptorTable(InterceptorTable interceptorTable) {
+        if (interceptorTable != null) interceptorTable.handle(AptHub.interceptorTable);
+    }
+
+    public static void handleTargetInterceptorsTable(TargetInterceptorsTable targetInterceptorsTable) {
+        if (targetInterceptorsTable != null) targetInterceptorsTable.handle(AptHub.targetInterceptorsTable);
+    }
+
+
+
 
     /**
      * Auto inject params from bundle.
