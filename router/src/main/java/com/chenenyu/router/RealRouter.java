@@ -61,26 +61,37 @@ final class RealRouter extends AbsRouter {
         }
     }
 
+
+
     @Override
     public Fragment getFragment(@NonNull Object source) {
-        List<RouteInterceptor> interceptors = new LinkedList<>();
-        Collections.addAll(interceptors, mBaseValidator, mFragmentValidator,
-                mFragmentProcessor, mAppInterceptorsHandler, mAttrsProcessor);
-        RealInterceptorChain chain = new RealInterceptorChain(source, mRouteRequest, interceptors);
-        RouteResponse response = chain.process();
+        RouteResponse response = getFragmentChain(source).process();
         callback(response);
         return (Fragment) response.getResult();
     }
 
     @Override
-    public Intent getIntent(@NonNull Object source) {
+    public RouteInterceptor.Chain getFragmentChain(@NonNull Object source) {
         List<RouteInterceptor> interceptors = new LinkedList<>();
-        Collections.addAll(interceptors, mBaseValidator, mIntentValidator,
-                mIntentProcessor, mAppInterceptorsHandler, mAttrsProcessor);
-        RealInterceptorChain chain = new RealInterceptorChain(source, mRouteRequest, interceptors);
-        RouteResponse response = chain.process();
+        Collections.addAll(interceptors, mBaseValidator, mFragmentValidator,
+            mFragmentProcessor, mAppInterceptorsHandler, mAttrsProcessor);
+        return new RealInterceptorChain(source, mRouteRequest, interceptors);
+    }
+
+
+    @Override
+    public Intent getIntent(@NonNull Object source) {
+        RouteResponse response = getIntentChain(source).process();
         callback(response);
         return (Intent) response.getResult();
+    }
+
+    @Override
+    public RouteInterceptor.Chain getIntentChain(@NonNull Object source) {
+        List<RouteInterceptor> interceptors = new LinkedList<>();
+        Collections.addAll(interceptors, mBaseValidator, mIntentValidator,
+            mIntentProcessor, mAppInterceptorsHandler, mAttrsProcessor);
+        return new RealInterceptorChain(source, mRouteRequest, interceptors);
     }
 
     @Override

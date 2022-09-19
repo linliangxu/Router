@@ -115,6 +115,9 @@ public interface IRouter {
      */
     IRouter addInterceptors(String... interceptors);
 
+
+
+
     /**
      * Get an intent instance.
      *
@@ -122,6 +125,7 @@ public interface IRouter {
      * @return {@link Intent} instance.
      */
     Intent getIntent(@NonNull Object source);
+    RouteInterceptor.Chain getIntentChain(@NonNull Object source);
 
     /**
      * Get a fragment instance.
@@ -130,6 +134,7 @@ public interface IRouter {
      * @return {@link Fragment} instance.
      */
     Fragment getFragment(@NonNull Object source);
+    RouteInterceptor.Chain getFragmentChain(@NonNull Object source);
 
     void go(Context context, RouteCallback callback);
 

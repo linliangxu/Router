@@ -10,6 +10,7 @@
     android:supportsRtl="true"
     android:theme="@style/Theme.Router">
     <activity android:name=".ui.HomeActivity"></activity>
+    <activity android:name=".ui.InterceptorActivity"></activity>
     <activity
       android:name=".MainActivity"
       android:label="@string/app_name">
